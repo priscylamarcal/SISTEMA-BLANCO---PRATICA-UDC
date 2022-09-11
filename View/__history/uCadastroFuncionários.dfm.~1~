@@ -1,0 +1,15 @@
+﻿inherited form_cadastro_funcionário: Tform_cadastro_funcionário
+  Caption = 'Cadastro de Funcion'#225'rio'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnl_fundo: TPanel
+    inherited lbl_codigo: TLabel
+      Top = 40
+      ExplicitTop = 40
+    end
+    inherited edt_codigo: PriTEdit
+      Top = 59
+      ExplicitTop = 59
+    end
+  end
+end

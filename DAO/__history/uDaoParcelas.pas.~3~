@@ -1,0 +1,55 @@
+unit uDaoParcelas;
+
+interface
+
+uses uDAO,
+     uFilterSearch;
+
+type daoParcela = class (DAO)
+  private
+  protected
+  public
+    constructor crieObj;                              override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+{ daoParcelas }
+
+function daoParcela.carregar(pObj: TObject): string;
+begin
+
+end;
+
+constructor daoParcela.crieObj;
+begin
+  inherited;
+
+end;
+
+function daoParcela.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function daoParcela.getDS: TObject;
+begin
+
+end;
+
+function daoParcela.pesquisar(AFilter: TFilterSearch; pChave: string): string;
+begin
+
+end;
+
+function daoParcela.salvar(pObj: TObject): string;
+begin
+
+end;
+
+end.

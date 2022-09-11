@@ -1,0 +1,123 @@
+unit uDaoEstados;
+
+interface
+
+uses uDAO, uFilterSearch, uEstados, uPaises;
+
+type daoEstados = class( DAO )
+  private
+  protected
+  public
+    constructor crieObj;                              override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+uses
+  System.SysUtils;
+
+{ daoEstados }
+
+function daoEstados.carregar(pObj: TObject): string;
+var mEstado : Estados; mPais : Paises;
+begin
+  mEstado:= Estados( pObj );
+  mPais:= mEstado.getoPais;
+
+  mEstado.setCodigo( aDM.QEstados.FieldByName('CODESTADO').Value );
+  mEstado.setEstado( aDM.QEstados.FieldByName('ESTADO').AsString );
+  mEstado.setUF( aDM.QEstados.FieldByName('UF').AsString );
+
+  mPais.setCodigo( aDM.QEstados.FieldByName('CODPAIS').Value );
+  mPais.setPais( aDM.QPaises.FieldByName('PAIS').AsString );
+  mPais.setDDI( aDM.QPaises.FieldByName('DDI').AsString );
+  mPais.setSigla( aDM.QPaises.FieldByName('SIGLA').AsString );
+
+  mEstado.setDataCad( aDM.QEstados.FieldByName('DATACAD').AsDateTime );
+end;
+
+constructor daoEstados.crieObj;
+begin
+  inherited;
+
+end;
+
+function daoEstados.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function daoEstados.getDS: TObject;
+begin
+  Result:= aDM.DSEstados;
+end;
+
+function daoEstados.pesquisar(AFilter: TFilterSearch; pChave: string): string;
+var msql : string;
+begin
+    msql:= 'SELECT * FROM ESTADOS';
+
+    case AFilter.TipoConsulta of
+
+     TpCCodigo:
+     begin
+       msql:= 'SELECT * FROM ESTADOS WHERE CODESTADO =' + IntToStr( AFilter.Codigo );
+     end;
+
+     TpCParam:
+     begin
+       msql:= ( 'SELECT * FROM ESTADOS WHERE ESTADO LIKE  ' + QuotedStr( '%' + AFilter.Parametro + '%' ) );
+     end;
+
+//     TpCPais:
+//     begin
+//       msql:= ( 'SELECT ' + ( AFilter.Pais ) );
+//     end;
+
+     TpCTODOS:
+     begin
+       msql:= 'SELECT * FROM ESTADOS ORDER BY CODESTADO';
+     end;
+
+    end;
+
+    aDM.QEstados.Active:= false;
+    aDM.QEstados.SQL.Text:=msql;
+    aDM.QEstados.Open;
+    result:= '';
+
+end;
+
+function daoEstados.salvar(pObj: TObject): string;
+var mEstado : Estados; mPais : Paises;
+begin
+  mEstado:= Estados( pObj );
+  mPais:= mEstado.getoPais;
+  aDM.Transacao.StartTransaction;
+  try
+    if mEstado.getCodigo = 0 then
+       aDM.QEstados.Insert
+    else
+       aDM.QEstados.Edit;
+
+    aDM.QEstados.FieldByName('CODESTADO').AsInteger:= mEstado.getCodigo;
+    aDM.QEstados.FieldByName('ESTADO').AsString:= mEstado.getEstado;
+    aDM.QEstados.FieldByName('UF').AsString:= mEstado.getUF;
+    aDM.QEstados.FieldByName('CODPAIS').AsInteger:= mPais.getCodigo;
+    aDM.QEstados.FieldByName('DATACAD').AsDateTime:= mEstado.getDataCad;
+
+    aDM.QEstados.Post;
+
+    aDM.Transacao.Commit;
+
+  except
+    aDM.Transacao.Rollback;
+  end;
+end;
+
+end.

@@ -1,0 +1,1 @@
+connect 'D:\Desenvolvimento\Projeto\Blanco---Sistema\bd\BD-SISTEMA-BLANCO.FDB' user 'sysdba' password 'masterkey';

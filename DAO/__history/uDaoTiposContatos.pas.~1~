@@ -1,0 +1,55 @@
+unit uDaoTiposContatos;
+
+interface
+
+uses uFilterSearch, uTiposContatos, uDAO;
+
+type daoTiposContatos = class( DAO )
+  private
+  protected
+  public
+    constructor crieObj;                              override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+{ daoTiposContatos }
+
+function daoTiposContatos.carregar(pObj: TObject): string;
+begin
+
+end;
+
+constructor daoTiposContatos.crieObj;
+begin
+  inherited;
+
+end;
+
+function daoTiposContatos.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function daoTiposContatos.getDS: TObject;
+begin
+
+end;
+
+function daoTiposContatos.pesquisar(AFilter: TFilterSearch;
+  pChave: string): string;
+begin
+
+end;
+
+function daoTiposContatos.salvar(pObj: TObject): string;
+begin
+
+end;
+
+end.

@@ -1,0 +1,86 @@
+unit uCadastroTiposContatos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uCadastroPai, Vcl.Buttons, Vcl.StdCtrls,
+  campoEdit, Vcl.ExtCtrls, uTiposContatos, uCtrlTiposContatos;
+
+type
+  Tform_cadastro_tipo_contato = class(Tform_cadastro_pai)
+    lbl_tipo_contato: TLabel;
+    edt_tipo_contato: PriTEdit;
+  private
+    { Private declarations }
+    oTipoContato : TiposContatos;
+    aCtrlTiposContatos : ctrlTiposContatos;
+  public
+    { Public declarations }
+    procedure conhecaObj ( pCtrl, pObj : TObject );  override;
+    procedure salvar;         override;
+    procedure sair;           override;
+    procedure limpaEdt;       override;
+    procedure carregaEdt;     override;
+    procedure bloqueiaEdt;    override;
+    procedure desbloqueiaEdt; override;
+    function validaFormulario : Boolean; override;
+  end;
+
+var
+  form_cadastro_tipo_contato: Tform_cadastro_tipo_contato;
+
+implementation
+
+{$R *.dfm}
+
+{ Tform_cadastro_tipo_contato }
+
+procedure Tform_cadastro_tipo_contato.bloqueiaEdt;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_tipo_contato.carregaEdt;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_tipo_contato.conhecaObj(pCtrl, pObj: TObject);
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_tipo_contato.desbloqueiaEdt;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_tipo_contato.limpaEdt;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_tipo_contato.sair;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_tipo_contato.salvar;
+begin
+  inherited;
+
+end;
+
+function Tform_cadastro_tipo_contato.validaFormulario: Boolean;
+begin
+
+end;
+
+end.

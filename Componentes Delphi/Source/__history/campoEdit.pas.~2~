@@ -1,0 +1,60 @@
+unit campoEdit;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Vcl.Controls, Vcl.StdCtrls, Vcl.Graphics;
+
+type
+  PriTEdit = class(TEdit)
+  private
+    FMudarCor: TColor;
+    procedure SetMudarCor(const Value: TColor);
+    { Private declarations }
+  protected
+    { Protected declarations }
+    procedure DoEnter; override;
+    procedure DoExit;  override;
+  public
+    { Public declarations }
+    constructor create ( AOwner : TComponent ); override;
+  published
+    { Published declarations }
+    property MudarCor : TColor read FMudarCor write SetMudarCor;
+  end;
+
+procedure Register;
+
+implementation
+
+procedure Register;
+begin
+  RegisterComponents('Priscyla', [PriTEdit]);
+end;
+
+{ PriTEdit }
+
+constructor PriTEdit.create(AOwner: TComponent);
+begin
+  inherited;
+  FMudarCor:= clCream;
+end;
+
+procedure PriTEdit.DoEnter;
+begin
+  inherited;
+  Color:= FMudarCor;
+end;
+
+procedure PriTEdit.DoExit;
+begin
+  inherited;
+  Color:= clWindow;
+end;
+
+procedure PriTEdit.SetMudarCor(const Value: TColor);
+begin
+  FMudarCor := Value;
+end;
+
+end.

@@ -1,0 +1,82 @@
+unit uCadastro_Compras;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uCadastroPai, Vcl.Buttons, Vcl.StdCtrls,
+  campoEdit, Vcl.ExtCtrls;
+
+type
+  Tform_cadastro_compras = class(Tform_cadastro_pai)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure conhecaObj ( pCtrl, pObj : TObject );  override;
+    procedure salvar;         override;
+    procedure sair;           override;
+    procedure limpaEdt;       override;
+    procedure carregaEdt;     override;
+    procedure bloqueiaEdt;    override;
+    procedure desbloqueiaEdt; override;
+    function validaFormulario : Boolean; override;
+  end;
+
+var
+  form_cadastro_compras: Tform_cadastro_compras;
+
+implementation
+
+{$R *.dfm}
+
+{ Tform_cadastro_compras }
+
+procedure Tform_cadastro_compras.bloqueiaEdt;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_compras.carregaEdt;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_compras.conhecaObj(pCtrl, pObj: TObject);
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_compras.desbloqueiaEdt;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_compras.limpaEdt;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_compras.sair;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_compras.salvar;
+begin
+  inherited;
+
+end;
+
+function Tform_cadastro_compras.validaFormulario: Boolean;
+begin
+
+end;
+
+end.

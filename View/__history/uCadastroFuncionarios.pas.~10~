@@ -1,0 +1,50 @@
+unit uCadastroFuncionarios;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uCadastroPai, Vcl.Buttons, Vcl.StdCtrls,
+  campoEdit, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.Mask, MaskEdit1;
+
+type
+  Tform_cadastro_funcionario = class(Tform_cadastro_pai)
+    lbl_dados_gerais: TLabel;
+    edt_nome: PriTEdit;
+    check_masc: TCheckBox;
+    check_fem: TCheckBox;
+    edt_mask_cpf: PriTMaskEdit;
+    edt_rg: PriTEdit;
+    date_data_nasc: TDateTimePicker;
+    lbl_nome: TLabel;
+    lbl_sexo: TLabel;
+    lbl_cpf: TLabel;
+    lbl_rg: TLabel;
+    lbl_data_nascimento: TLabel;
+    lbl_trabalho: TLabel;
+    edt_pesquisar_registro: PriTEdit;
+    pnl_btn_pesquisa: TPanel;
+    btn_pesquisa: TSpeedButton;
+    DateTimePicker1: TDateTimePicker;
+    DateTimePicker2: TDateTimePicker;
+    PriTEdit1: PriTEdit;
+    PriTEdit2: PriTEdit;
+    lbl_cargo: TLabel;
+    lbl_data_admissao: TLabel;
+    lbl_data_demissao: TLabel;
+    lbl_salario: TLabel;
+    lbl_comissao: TLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  form_cadastro_funcionario: Tform_cadastro_funcionario;
+
+implementation
+
+{$R *.dfm}
+
+end.

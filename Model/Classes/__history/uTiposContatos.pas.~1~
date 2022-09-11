@@ -1,0 +1,48 @@
+unit uTiposContatos;
+
+interface
+
+uses uPai;
+
+type TiposContatos = class( Pai )
+  private
+  protected
+    tipoContato : string[80];
+  public
+    constructor crieObj;
+    destructor destrua_se;
+    procedure setTipoContato ( pTipoContato : string );
+    function getTipoContato : string;
+    function clone : TiposContatos;
+end;
+
+implementation
+
+{ TiposContatos }
+
+function TiposContatos.clone: TiposContatos;
+begin
+
+end;
+
+constructor TiposContatos.crieObj;
+begin
+
+end;
+
+destructor TiposContatos.destrua_se;
+begin
+
+end;
+
+function TiposContatos.getTipoContato: string;
+begin
+
+end;
+
+procedure TiposContatos.setTipoContato(pTipoContato: string);
+begin
+
+end;
+
+end.

@@ -1,0 +1,119 @@
+unit uParcelas;
+
+interface
+
+uses Classes, SysUtils,
+     uPai,
+     uFormaPagamento, uCondicoesPagamentos;
+
+type Parcelas = class (Pai)
+
+  private
+
+  protected
+     dias         : integer;
+     parcelas     : integer;
+     porcentagem  : real;
+     umaFormaPgto : FormasPagamentos;
+     umaCondPgto  : CondicoesPagamentos;
+  public
+     constructor crieObj;
+     destructor destrua_se;
+     procedure setDias ( pDias : integer );
+     procedure setParcelas ( pParcelas : integer );
+     procedure setPorcentagem ( pPorcentagem : real );
+     procedure setaFormaPgto ( paFormaPgto : FormasPagamentos );
+     procedure setaCondPgto ( paCondPgto : CondicoesPagamentos );
+     function getDias : integer;
+     function getParcelas : integer;
+     function getPorcentagem : real;
+     function getaFormaPgto : FormasPagamentos;
+     function getaCondPgto : CondicoesPagamentos;
+     function clone : Parcelas;
+end;
+
+implementation
+
+{ Parcelas }
+
+function Parcelas.clone: Parcelas;
+begin
+  Result:= Parcelas.crieObj;
+  Result.setCodigo(codigo);
+  Result.setDias(dias);
+  Result.setParcelas(parcelas);
+  Result.setPorcentagem(porcentagem);
+  Result.setaFormaPgto(umaFormaPgto.clone);
+  Result.setaCondPgto(umaCondPgto.clone);
+  Result.setDataCad(dataCad);
+  Result.setUltAlt(ultAlt);
+  Result.setCodUsu(codUsu);
+end;
+
+constructor Parcelas.crieObj;
+begin
+  inherited;
+  dias:= 0;
+  parcelas:= 0;
+  porcentagem:= 0;
+  umaFormaPgto:= FormasPagamentos.crieObj;
+  umaCondPgto:= CondicoesPagamentos.crieObj;
+end;
+
+destructor Parcelas.destrua_se;
+begin
+  umaFormaPgto.destrua_se;
+  umaCondPgto.destrua_se;
+end;
+
+function Parcelas.getaCondPgto: CondicoesPagamentos;
+begin
+  Result:= umaCondPgto;
+end;
+
+function Parcelas.getaFormaPgto: FormasPagamentos;
+begin
+  Result:= umaFormaPgto;
+end;
+
+function Parcelas.getDias: integer;
+begin
+  Result:= dias;
+end;
+
+function Parcelas.getParcelas: integer;
+begin
+  Result:= parcelas;
+end;
+
+function Parcelas.getPorcentagem: real;
+begin
+  Result:= porcentagem;
+end;
+
+procedure Parcelas.setaCondPgto(paCondPgto: CondicoesPagamentos);
+begin
+  umaCondPgto:= paCondPgto;
+end;
+
+procedure Parcelas.setaFormaPgto(paFormaPgto: FormasPagamentos);
+begin
+  umaFormaPgto:= paFormaPgto;
+end;
+
+procedure Parcelas.setDias(pDias: integer);
+begin
+  dias:= pDias;
+end;
+
+procedure Parcelas.setParcelas(pParcelas: integer);
+begin
+  parcelas:= pParcelas;
+end;
+
+procedure Parcelas.setPorcentagem(pPorcentagem: real);
+begin
+  porcentagem:= pPorcentagem;
+end;
+
+end.

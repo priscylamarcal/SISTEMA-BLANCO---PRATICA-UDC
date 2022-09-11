@@ -1,0 +1,312 @@
+object form_consulta_pai: Tform_consulta_pai
+  Left = 0
+  Top = 0
+  Caption = 'Consulta'
+  ClientHeight = 1041
+  ClientWidth = 1904
+  Color = clWhite
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesigned
+  WindowState = wsMaximized
+  OnShow = FormShow
+  DesignSize = (
+    1904
+    1041)
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnl_fundo: TPanel
+    Left = 0
+    Top = 0
+    Width = 1920
+    Height = 1080
+    Anchors = [akTop]
+    BevelOuter = bvNone
+    Color = clWhite
+    ParentBackground = False
+    TabOrder = 0
+    object pnl_topo: TPanel
+      Left = 0
+      Top = 0
+      Width = 1920
+      Height = 145
+      Align = alTop
+      BevelOuter = bvNone
+      Color = clWhite
+      ParentBackground = False
+      TabOrder = 1
+      DesignSize = (
+        1920
+        145)
+      object pnl_dentro_topo: TPanel
+        Left = 0
+        Top = 26
+        Width = 833
+        Height = 113
+        Anchors = [akLeft]
+        BevelOuter = bvNone
+        Color = clWhite
+        ParentBackground = False
+        TabOrder = 0
+        object pnl_botao_pesquisar: TPanel
+          Left = 664
+          Top = 57
+          Width = 150
+          Height = 40
+          Cursor = crHandPoint
+          BevelOuter = bvNone
+          Color = 16744448
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentBackground = False
+          ParentFont = False
+          TabOrder = 2
+          TabStop = True
+          object spb_botao_pesquisar: TSpeedButton
+            Left = 0
+            Top = 0
+            Width = 150
+            Height = 40
+            Cursor = crHandPoint
+            Align = alClient
+            Caption = 'Pesquisar'
+            Flat = True
+            OnClick = spb_botao_pesquisarClick
+            OnMouseEnter = spb_botao_pesquisarMouseEnter
+            OnMouseLeave = spb_botao_pesquisarMouseLeave
+            ExplicitLeft = 48
+            ExplicitTop = 16
+            ExplicitWidth = 23
+            ExplicitHeight = 22
+          end
+        end
+        object edt_pesquisar: PriTEdit
+          Left = 156
+          Top = 66
+          Width = 482
+          Height = 24
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+          TextHint = 'Digite aqui para pesquisar !'
+          MudarCor = clCream
+        end
+        object combo_campo_filtros: TComboBox1
+          Left = 0
+          Top = 66
+          Width = 145
+          Height = 24
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          MudarCor = clCream
+        end
+      end
+    end
+    object pnl_db_grid: TPanel
+      Left = 0
+      Top = 145
+      Width = 1920
+      Height = 775
+      Align = alClient
+      BevelOuter = bvNone
+      Color = clWhite
+      ParentBackground = False
+      TabOrder = 0
+      object DBGrid: TDBGrid
+        Left = 0
+        Top = 0
+        Width = 1920
+        Height = 775
+        Align = alClient
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Options = [dgTitles, dgIndicator, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgTitleClick, dgTitleHotTrack]
+        ParentFont = False
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -13
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        OnDrawColumnCell = DBGridDrawColumnCell
+      end
+    end
+    object pnl_bottom: TPanel
+      Left = 0
+      Top = 920
+      Width = 1920
+      Height = 160
+      Align = alBottom
+      Anchors = [akLeft, akTop, akRight, akBottom]
+      BevelOuter = bvNone
+      Color = clWhite
+      ParentBackground = False
+      TabOrder = 2
+      DesignSize = (
+        1920
+        160)
+      object pnl_botao_sair: TPanel
+        Left = 1770
+        Top = 21
+        Width = 150
+        Height = 40
+        Anchors = [akLeft, akBottom]
+        BevelOuter = bvNone
+        Color = 16119285
+        ParentBackground = False
+        TabOrder = 3
+        TabStop = True
+        object btn_botao_sair: TSpeedButton
+          Left = 0
+          Top = 0
+          Width = 150
+          Height = 40
+          Cursor = crHandPoint
+          Align = alClient
+          Anchors = [akLeft, akRight, akBottom]
+          Caption = 'Sair'
+          Flat = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clGray
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          OnClick = btn_botao_sairClick
+          OnMouseEnter = btn_botao_sairMouseEnter3
+          OnMouseLeave = btn_botao_sairMouseLeave3
+          ExplicitLeft = -8
+          ExplicitTop = -26
+        end
+      end
+      object pnl_botao_excluir: TPanel
+        Left = 1596
+        Top = 21
+        Width = 150
+        Height = 40
+        BevelOuter = bvNone
+        Color = clRed
+        ParentBackground = False
+        TabOrder = 2
+        TabStop = True
+        object btn_botao_excluir: TSpeedButton
+          Left = 0
+          Top = 0
+          Width = 150
+          Height = 40
+          Cursor = crHandPoint
+          Align = alClient
+          Caption = 'Excluir'
+          Flat = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          OnClick = btn_botao_excluirClick
+          OnMouseEnter = btn_botao_excluirMouseEnter
+          OnMouseLeave = btn_botao_excluirMouseLeave
+          ExplicitLeft = 40
+          ExplicitTop = 16
+          ExplicitWidth = 23
+          ExplicitHeight = 22
+        end
+      end
+      object pnl_botao_alterar: TPanel
+        Left = 1422
+        Top = 21
+        Width = 150
+        Height = 40
+        BevelOuter = bvNone
+        Color = 4227072
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 1
+        TabStop = True
+        object btn_botao_alterar: TSpeedButton
+          Left = 0
+          Top = 0
+          Width = 150
+          Height = 40
+          Cursor = crHandPoint
+          Align = alClient
+          Caption = 'Alterar'
+          Flat = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          OnClick = btn_botao_alterarClick
+          OnMouseEnter = btn_botao_alterarMouseEnter
+          OnMouseLeave = btn_botao_alterarMouseLeave
+          ExplicitLeft = 40
+          ExplicitTop = 8
+          ExplicitWidth = 23
+          ExplicitHeight = 22
+        end
+      end
+      object pnl_botao_novo: TPanel
+        Left = 1246
+        Top = 21
+        Width = 150
+        Height = 40
+        BevelOuter = bvNone
+        Color = 1624307
+        ParentBackground = False
+        TabOrder = 0
+        TabStop = True
+        object btn_botao_novo: TSpeedButton
+          Left = 0
+          Top = 0
+          Width = 150
+          Height = 40
+          Cursor = crHandPoint
+          Align = alClient
+          Caption = 'Novo'
+          Flat = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          OnClick = btn_botao_novoClick
+          OnMouseEnter = btn_botao_novoMouseEnter
+          OnMouseLeave = btn_botao_novoMouseLeave
+          ExplicitLeft = 48
+          ExplicitTop = 16
+          ExplicitWidth = 23
+          ExplicitHeight = 22
+        end
+      end
+    end
+  end
+end

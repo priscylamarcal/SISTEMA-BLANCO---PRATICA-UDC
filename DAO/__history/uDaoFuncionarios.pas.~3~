@@ -1,0 +1,126 @@
+﻿unit uDaoFuncionarios;
+
+interface
+
+uses uDAO, uFilterSearch, uCidades, uTiposContatos, uCargos, uFuncionarios;
+
+type daoFuncionarios = class( DAO )
+  private
+  protected
+  public
+    constructor crieObj;                              override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+uses
+  System.SysUtils;
+
+{ daoFuncionarios }
+
+function daoFuncionarios.carregar(pObj: TObject): string;
+var mFuncionario : Funcionarios; mCidade : Cidades; mContato : TiposContatos;
+    mCargo : Cargos;
+begin
+  mFuncionario:= Funcionarios( pObj );
+
+  mCidade:= mFuncionario.getaCidade;
+  mContato:= mFuncionario.getoContato;
+  mCargo:= mFuncionario.getCargo;
+
+  mFuncionario.setCodigo( aDM.QFornecedores.FieldByName('CODFUNC').Value );
+  mFuncionario.setDataCad( aDM.QFornecedores.FieldByName('DATACAD').AsDateTime );
+  mFuncionario.setUltAlt( aDM.QFornecedores.FieldByName('ULTALT').AsDateTime );
+  mFuncionario.setCodUsu( aDM.QFornecedores.FieldByName('CODUSU').Value );
+  mFuncionario.setNomeRazaoSocial( aDM.QFornecedores.FieldByName('FUNCIONARIO').AsString );
+  mFuncionario.setEndereco( aDM.QFornecedores.FieldByName('ENDERECO').AsString );
+  mFuncionario.setNumero( aDM.QFornecedores.FieldByName('NUMERO').AsString );
+  mFuncionario.setComplemento( aDM.QFornecedores.FieldByName('COMPLEMENTO').AsString );
+  mFuncionario.setBairro( aDM.QFornecedores.FieldByName('BAIRRO').AsString );
+  mFuncionario.setCep( aDM.QFornecedores.FieldByName('CEP').AsString );
+  mFuncionario.setContatoAux1( aDM.QFornecedores.FieldByName('CONTATO_AUX1').AsString );
+  mFuncionario.setContatoAux2( aDM.QFornecedores.FieldByName('CONTATO_AUX2').AsString );
+  mFuncionario.setCnpjCpf( aDM.QFornecedores.FieldByName('CPF').AsString );
+  mFuncionario.setIeRg( aDM.QFornecedores.FieldByName('RG').AsString );
+  mFuncionario.setDataNasc( aDM.QFornecedores.FieldByName('DATA_NASC').AsDateTime );
+  mFuncionario.setDataAdmissao( aDM.QFornecedores.FieldByName('DATA_ADMISSAO').AsDateTime );
+  mFuncionario.setDataDemis( aDM.QFornecedores.FieldByName('DATA_DEMISSAO').AsDateTime );
+  mFuncionario.setSalario( aDM.QFornecedores.FieldByName('SALARIO').Value );
+  mFuncionario.setComissao( aDM.QFornecedores.FieldByName('COMISSAO').Value );
+  mFuncionario.setObs( aDM.QFornecedores.FieldByName('OBS').AsString );
+
+  mFuncionario.getaCidade.setCodigo(aDM.QFuncionarios.FieldByName('CODCIDADE').Value );
+  mFuncionario.getaCidade.setCidade(aDM.QFuncionarios.FieldByName('CIDADE').AsString );
+  mFuncionario.getaCidade.getoEstado.setUF(aDM.QFuncionarios.FieldByName('UF').AsString );
+
+  mFuncionario.getoContato.setCodigo(aDM.QFuncionarios.FieldByName('CODCONTATO').Value );
+  mFuncionario.getoContato.setTipoContato(aDM.QFuncionarios.FieldByName('CONTATO').AsString );
+
+  mFuncionario.getCargo.setCodigo(aDM.QFuncionarios.FieldByName('CODCARGO').Value );
+  mFuncionario.getCargo.setCargo(aDM.QFuncionarios.FieldByName('CARGO').AsString );
+end;
+
+constructor daoFuncionarios.crieObj;
+begin
+  inherited;
+
+end;
+
+function daoFuncionarios.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function daoFuncionarios.getDS: TObject;
+begin
+  Result:= aDM.DSFuncionarios;
+end;
+
+function daoFuncionarios.pesquisar(AFilter: TFilterSearch;
+  pChave: string): string;
+var msql : string;
+begin
+    msql:= 'SELECT * FROM FUNCIONARIOS';
+
+    case AFilter.TipoConsulta of
+
+     TpCCodigo:
+     begin
+       msql:= 'SELECT * FROM FUNCIONARIOS WHERE CODFUNC =' + IntToStr( AFilter.Codigo );
+     end;
+
+     TpCParam:
+     begin
+       msql:= ( 'SELECT * FROM FUNCIONARIOS WHERE FUNCIONARIO LIKE ' + QuotedStr( '%' + AFilter.Parametro + '%' ) );
+     end;
+
+     TpCTODOS:
+     begin
+       msql:= 'SELECT * FROM FUNCIONARIOS ORDER BY CODFUNC';
+     end;
+
+    end;
+
+    aDM.QFuncionarios.Active:= false;
+    aDM.QFuncionarios.SQL.Text:=msql;
+    aDM.QFuncionarios.Open;
+    result:= '';
+end;
+
+function daoFuncionarios.salvar(pObj: TObject): string;
+var mFuncionario : Funcionarios; mCidade : Cidades; mContato : TiposContatos;
+    mCargo : Cargos;
+begin
+  mFuncionario:= Funcionarios( pObj );
+
+  mCidade:= mFuncionario.getaCidade;
+  mContato:= mFuncionario.getoContato;
+  mCargo:= mFuncionario.getCargo;
+end;
+
+end.

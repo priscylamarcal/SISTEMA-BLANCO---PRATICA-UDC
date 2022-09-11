@@ -1,0 +1,84 @@
+unit uCadastroDepartamentos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uCadastroPai, Vcl.StdCtrls, campoEdit,
+  Vcl.Buttons, Vcl.ExtCtrls;
+
+type
+  Tform_cadastro_departamento = class(Tform_cadastro_pai)
+    edt_departamento: PriTEdit;
+    lbl_departamento: TLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure conhecaObj ( pCtrl, pObj : TObject );  override;
+    procedure salvar;         override;
+    procedure sair;           override;
+    procedure limpaEdt;       override;
+    procedure carregaEdt;     override;
+    procedure bloqueiaEdt;    override;
+    procedure desbloqueiaEdt; override;
+    function validaFormulario : Boolean; override;
+  end;
+
+var
+  form_cadastro_departamento: Tform_cadastro_departamento;
+
+implementation
+
+{$R *.dfm}
+
+{ Tform_cadastro_departamento }
+
+procedure Tform_cadastro_departamento.bloqueiaEdt;
+begin
+  inherited;
+  self.edt_departamento.Enabled:= False;
+end;
+
+procedure Tform_cadastro_departamento.carregaEdt;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_departamento.conhecaObj(pCtrl, pObj: TObject);
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_departamento.desbloqueiaEdt;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_departamento.limpaEdt;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_departamento.sair;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_departamento.salvar;
+begin
+  inherited;
+
+end;
+
+function Tform_cadastro_departamento.validaFormulario: Boolean;
+begin
+
+end;
+
+end.

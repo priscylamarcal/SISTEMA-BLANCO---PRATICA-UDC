@@ -1,0 +1,105 @@
+unit uCondicoesPagamentos;
+
+interface
+
+uses uPai,
+     uFormaPagamento,
+     System.Generics.Collections;
+
+type CondicoesPagamentos = class ( Pai )
+  private
+  protected
+     condicao : string[80];
+     juros : real;
+     desconto : real;
+     multa : real;
+     tipo: string;
+     listaParcelas : TObjectList<TParcelas>;
+  public
+     constructor crieObj;
+     destructor destrua_se;
+     procedure setCondicao ( pCondicao : string );
+     procedure setJuros ( pJuros : real );
+     procedure setDesconto ( pDesconto : real );
+     procedure setMulta ( pMulta : real );
+     procedure setListaParcelas ( pListaParcelas : TObjectList<TParcelas> );
+     function getCondicao : string;
+     function getJuros : real;
+     function getDesconto : real;
+     function getMulta : real;
+     function getListaParcelas : TObjectList<TParcelas>;
+     function clone : CondicoesPagamentos;
+end;
+
+implementation
+
+{ CondicaoPagamento }
+
+constructor CondicoesPagamentos.crieObj;
+begin
+  inherited;
+  condicao:= '';
+  juros:= 0;
+  desconto:= 0;
+  multa:= 0;
+end;
+
+destructor CondicoesPagamentos.destrua_se;
+begin
+
+end;
+
+function CondicoesPagamentos.getCondicao: string;
+begin
+  Result:= condicao;
+end;
+
+function CondicoesPagamentos.getDesconto: real;
+begin
+  Result:= desconto;
+end;
+
+function CondicoesPagamentos.getJuros: real;
+begin
+  Result:= juros;
+end;
+
+function CondicoesPagamentos.getMulta: real;
+begin
+  Result:= multa;
+end;
+
+procedure CondicoesPagamentos.setCondicao(pCondicao: string);
+begin
+  condicao:= pCondicao;
+end;
+
+procedure CondicoesPagamentos.setDesconto(pDesconto: real);
+begin
+  desconto:= pDesconto;
+end;
+
+procedure CondicoesPagamentos.setJuros(pJuros: real);
+begin
+  juros:= pJuros;
+end;
+
+procedure CondicoesPagamentos.setMulta(pMulta: real);
+begin
+  multa:= pMulta;
+end;
+
+function CondicoesPagamentos.clone: CondicoesPagamentos;
+begin
+  Result:= CondicoesPagamentos.crieObj;
+  Result.setCodigo( codigo );
+  Result.setCondicao( condicao );
+  Result.setJuros( juros );
+  Result.setDesconto( desconto );
+  Result.setMulta( multa );
+  Result.setDataCad(dataCad);
+  Result.setUltAlt(ultAlt);
+  Result.setCodUsu(codUsu);
+end;
+
+end.

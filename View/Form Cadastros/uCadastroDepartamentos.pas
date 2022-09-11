@@ -1,0 +1,123 @@
+unit uCadastroDepartamentos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uCadastroPai, Vcl.StdCtrls, campoEdit,
+  Vcl.Buttons, Vcl.ExtCtrls,
+  uDepartamentos,
+  uCtrlDepartamentos;
+
+type
+  Tform_cadastro_departamento = class(Tform_cadastro_pai)
+    edt_departamento: PriTEdit;
+    lbl_departamento: TLabel;
+  private
+    { Private declarations }
+
+    oDepartamento : Departamentos;
+    aCtrlDepartamentos : ctrlDepartamentos;
+  public
+    { Public declarations }
+    procedure conhecaObj ( pCtrl, pObj : TObject );  override;
+    procedure salvar;         override;
+    procedure sair;           override;
+    procedure limpaEdt;       override;
+    procedure carregaEdt;     override;
+    procedure bloqueiaEdt;    override;
+    procedure desbloqueiaEdt; override;
+    function validaFormulario : Boolean; override;
+  end;
+
+var
+  form_cadastro_departamento: Tform_cadastro_departamento;
+
+implementation
+
+{$R *.dfm}
+
+{ Tform_cadastro_departamento }
+
+procedure Tform_cadastro_departamento.bloqueiaEdt;
+begin
+  inherited;
+  self.edt_departamento.Enabled:= False;
+end;
+
+procedure Tform_cadastro_departamento.carregaEdt;
+begin
+  inherited;
+
+  if oDepartamento.getCodigo <> 0 then
+     Self.edt_codigo.Text:= IntToStr( oDepartamento.getCodigo );
+
+  Self.edt_departamento.Text:= oDepartamento.getDepartamento;
+  self.edt_data_cadastro.Text:= DateToStr( oDepartamento.getDataCad );
+end;
+
+procedure Tform_cadastro_departamento.conhecaObj(pCtrl, pObj: TObject);
+begin
+  inherited;
+  oDepartamento:= Departamentos( pObj );
+  aCtrlDepartamentos:= ctrlDepartamentos( pCtrl );
+
+  self.limpaEdt;
+  self.carregaEdt;
+end;
+
+procedure Tform_cadastro_departamento.desbloqueiaEdt;
+begin
+  inherited;
+  self.edt_departamento.Enabled:= True;
+end;
+
+procedure Tform_cadastro_departamento.limpaEdt;
+begin
+  inherited;
+  self.edt_departamento.Clear;
+  self.edt_data_cadastro.Clear;
+  self.edt_data_ult_alt.Clear;
+end;
+
+procedure Tform_cadastro_departamento.sair;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_departamento.salvar;
+begin
+  inherited;
+  if validaFormulario then
+  begin
+    oDepartamento.setCodigo(StrToInt(self.edt_codigo.Text));
+    oDepartamento.setDepartamento(self.edt_departamento.Text);
+    oDepartamento.setDataCad(Date);
+    oDepartamento.setUltAlt(Date);
+    oDepartamento.setCodUsu(StrToInt(self.edt_cod_usuario.Text));
+
+    if self.btn_botao_salvar.Caption = 'Salvar' then
+       aCtrlDepartamentos.salvar(oDepartamento.clone)
+    else
+       aCtrlDepartamentos.excluir(oDepartamento.clone);
+
+    self.sair;
+  end;
+end;
+
+function Tform_cadastro_departamento.validaFormulario: Boolean;
+begin
+  Result:= False;
+
+  if self.edt_departamento.Text = '' then
+  begin
+    MessageDlg('O campo Departamento é obrigatório!', MtInformation, [ MbOK ], 0 );
+    edt_departamento.SetFocus;
+    Exit;
+  end;
+
+  Result:= True;
+end;
+
+end.

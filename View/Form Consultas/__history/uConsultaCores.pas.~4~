@@ -1,0 +1,104 @@
+unit uConsultaCores;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uConsultaPai, Data.DB, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, ComboBox, campoEdit, Vcl.Buttons, Vcl.ExtCtrls,
+  uCadastroCores,
+  uCores,
+  uCtrlCores;
+
+type
+  Tform_consulta_cores = class(Tform_consulta_pai)
+  private
+    { Private declarations }
+    oCadastroCores : Tform_cadastro_cores;
+
+    aCor : Cores;
+    aCtrlCor : ctrlCores;
+  public
+    { Public declarations }
+    procedure novo;                                           override;
+    procedure alterar;                                        override;
+    procedure excluir;                                        override;
+    procedure sair;                                           override;
+    procedure pesquisar;                                      override;
+    procedure conhecaObj ( pCtrl : TObject; pObj : TObject ); override;
+    procedure setFrmCadastro ( pObj : TObject );                  override;
+  end;
+
+var
+  form_consulta_cores: Tform_consulta_cores;
+
+implementation
+
+{$R *.dfm}
+
+{ Tform_consulta_cores }
+
+procedure Tform_consulta_cores.alterar;
+begin
+  inherited;
+
+  aCtrlCor.carregar( aCor );
+  oCadastroCores.conhecaObj( aCtrlCor, aCor );
+
+  oCadastroCores.Caption:= 'Alteração de Cor';
+
+  oCadastroCores.ShowModal;
+
+end;
+
+procedure Tform_consulta_cores.conhecaObj(pCtrl, pObj: TObject);
+begin
+  inherited;
+  aCor:= Cores( pObj );
+  aCtrlCor:= ctrlCores( pCtrl );
+
+  self.DBGrid.DataSource:= TDataSource( aCtrlCor.getDS );
+end;
+
+procedure Tform_consulta_cores.excluir;
+begin
+  inherited;
+
+end;
+
+procedure Tform_consulta_cores.novo;
+var form : Tform_cadastro_cores;
+begin
+  inherited;
+
+  oCadastroCores.conhecaObj( aCtrlCor, aCor );
+  oCadastroCores.limpaEdt;
+
+  oCadastroCores.Caption:= 'Cadastro de Cor';
+
+  oCadastroCores.ShowModal;
+
+  if form.salvou then
+     self.pesquisar; inherited;
+
+end;
+
+procedure Tform_consulta_cores.pesquisar;
+begin
+  inherited;
+
+end;
+
+procedure Tform_consulta_cores.sair;
+begin
+  inherited;
+
+end;
+
+procedure Tform_consulta_cores.setFrmCadastro(pObj: TObject);
+begin
+  inherited;
+  oCadastroCores := Tform_cadastro_cores( pObj );
+end;
+
+end.

@@ -1,0 +1,15 @@
+unit uDaoDepartamentos;
+
+interface
+
+uses uDAO;
+
+type daoDepartamentos = class( DAO )
+  private
+  protected
+  public
+end;
+
+implementation
+
+end.

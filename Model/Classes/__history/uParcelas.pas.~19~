@@ -1,0 +1,136 @@
+unit uParcelas;
+
+interface
+
+uses Classes,
+     SysUtils,
+     uPai,
+     uFormaPagamento;
+//     uCondicoesPagamentos;
+
+type Parcela = class (Pai)
+
+  private
+
+  protected
+     dias         : integer;
+     parcelas     : integer;
+     porcentagem  : real;
+     umaFormaPgto : FormasPagamentos;
+     codCondPgto  : integer;
+//     umaCondPgto  : CondicoesPagamentos;
+  public
+     constructor crieObj;
+     destructor destrua_se;
+     procedure setDias ( pDias : integer );
+     procedure setParcelas ( pParcelas : integer );
+     procedure setPorcentagem ( pPorcentagem : real );
+     procedure setaFormaPgto ( paFormaPgto : FormasPagamentos );
+     procedure setCodCondPgto ( pCodCondPgto : integer );
+//     procedure setaCondPgto ( paCondPgto : CondicoesPagamentos );
+     function getDias : integer;
+     function getParcelas : integer;
+     function getPorcentagem : real;
+     function getaFormaPgto : FormasPagamentos;
+     function getCodCondPgto : integer;
+//     function getaCondPgto : CondicoesPagamentos;
+     function clone : Parcela;
+end;
+
+implementation
+
+{ Parcelas }
+
+function Parcela.clone: Parcela;
+begin
+  Result:= Parcelas.crieObj;
+  Result.setCodigo(codigo);
+  Result.setDias(dias);
+  Result.setParcelas(parcelas);
+  Result.setPorcentagem(porcentagem);
+  Result.setaFormaPgto(umaFormaPgto.clone);
+  Result.setCodCondPgto( codCondPgto );
+//  Result.setaCondPgto(umaCondPgto.clone);
+  Result.setDataCad(dataCad);
+  Result.setUltAlt(ultAlt);
+  Result.setCodUsu(codUsu);
+end;
+
+constructor Parcela.crieObj;
+begin
+  inherited;
+  dias:= 0;
+  parcelas:= 0;
+  porcentagem:= 0;
+  umaFormaPgto:= FormasPagamentos.crieObj;
+  codCondPgto:= 0;
+//  umaCondPgto:= CondicoesPagamentos.crieObj;
+end;
+
+destructor Parcela.destrua_se;
+begin
+  umaFormaPgto.destrua_se;
+//  umaCondPgto.destrua_se;
+end;
+
+//function Parcelas.getaCondPgto: CondicoesPagamentos;
+//begin
+//  Result:= umaCondPgto;
+//end;
+
+function Parcela.getaFormaPgto: FormasPagamentos;
+begin
+  Result:= umaFormaPgto;
+end;
+
+function Parcela.getCodCondPgto: integer;
+begin
+  Result:= codCondPgto;
+end;
+
+function Parcela.getDias: integer;
+begin
+  Result:= dias;
+end;
+
+function Parcela.getParcelas: integer;
+begin
+  Result:= parcelas;
+end;
+
+function Parcela.getPorcentagem: real;
+begin
+  Result:= porcentagem;
+end;
+
+//procedure Parcelas.setaCondPgto(paCondPgto: CondicoesPagamentos);
+//begin
+//  umaCondPgto:= paCondPgto;
+//end;
+
+procedure Parcela.setaFormaPgto(paFormaPgto: FormasPagamentos);
+begin
+  umaFormaPgto:= paFormaPgto;
+end;
+
+procedure Parcela.setCodCondPgto(pCodCondPgto: integer);
+begin
+  codCondPgto:= pCodCondPgto;
+end;
+
+procedure Parcela.setDias(pDias: integer);
+begin
+  dias:= pDias;
+end;
+
+procedure Parcela.setParcelas(pParcelas: integer);
+begin
+  parcelas:= pParcelas;
+end;
+
+procedure Parcela.setPorcentagem(pPorcentagem: real);
+begin
+  porcentagem:= pPorcentagem;
+end;
+
+end.

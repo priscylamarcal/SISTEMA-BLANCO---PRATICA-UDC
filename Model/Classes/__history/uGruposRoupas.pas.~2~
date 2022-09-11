@@ -1,0 +1,55 @@
+unit uGruposRoupas;
+
+interface
+
+uses uPai;
+
+type gruposRoupas = class( Pai )
+  private
+
+  protected
+    grupoRoupa : string[80];
+  public
+    constructor crieObj;
+    destructor destrua_se;
+    procedure setGrupoRoupa ( pGrupoRoupa : string );
+    function getGrupoRoupa : string;
+    function clone : gruposRoupas;
+end;
+
+implementation
+
+{ gruposRoupas }
+
+constructor gruposRoupas.crieObj;
+begin
+  inherited;
+  grupoRoupa:= '';
+end;
+
+destructor gruposRoupas.destrua_se;
+begin
+
+end;
+
+function gruposRoupas.getGrupoRoupa: string;
+begin
+  Result:= grupoRoupa;
+end;
+
+procedure gruposRoupas.setGrupoRoupa(pGrupoRoupa: string);
+begin
+  grupoRoupa:= pGrupoRoupa;
+end;
+
+function gruposRoupas.clone: gruposRoupas;
+begin
+  Result:= gruposRoupas.crieObj;
+  Result.setCodigo( codigo );
+  Result.setGrupoRoupa( grupoRoupa );
+  Result.setDataCad( dataCad );
+  Result.setUltAlt(ultAlt);
+  Result.setCodUsu(codUsu);
+end;
+
+end.

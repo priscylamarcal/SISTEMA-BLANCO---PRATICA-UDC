@@ -1,0 +1,69 @@
+unit uCtrlColecoes;
+
+interface
+
+uses uFilterSearch, uController, uDaoColecoes;
+
+type ctrlColecoes = class( Ctrl )
+  private
+  protected
+     aDaoColecao : daoColecoes;
+  public
+    constructor crieObj;                              override;
+    destructor destrua_se;                            override;
+    procedure setDM ( pDM : TObject );                override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+{ ctrlColecoes }
+
+function ctrlColecoes.carregar(pObj: TObject): string;
+begin
+
+end;
+
+constructor ctrlColecoes.crieObj;
+begin
+  inherited;
+
+end;
+
+destructor ctrlColecoes.destrua_se;
+begin
+
+  inherited;
+end;
+
+function ctrlColecoes.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function ctrlColecoes.getDS: TObject;
+begin
+
+end;
+
+function ctrlColecoes.pesquisar(AFilter: TFilterSearch; pChave: string): string;
+begin
+
+end;
+
+function ctrlColecoes.salvar(pObj: TObject): string;
+begin
+
+end;
+
+procedure ctrlColecoes.setDM(pDM: TObject);
+begin
+  inherited;
+
+end;
+
+end.

@@ -1,0 +1,6 @@
+inherited form_consulta_cargos: Tform_consulta_cargos
+  Caption = 'Consulta de Cargos'
+  ExplicitTop = 2
+  PixelsPerInch = 96
+  TextHeight = 13
+end

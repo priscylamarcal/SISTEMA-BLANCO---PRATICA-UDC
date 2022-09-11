@@ -1,0 +1,15 @@
+unit uCtrlCores;
+
+interface
+
+uses uController;
+
+type ctrlCores = class( Ctrl )
+  private
+  protected
+  public
+end;
+
+implementation
+
+end.

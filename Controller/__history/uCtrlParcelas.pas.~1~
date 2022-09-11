@@ -1,0 +1,18 @@
+unit uCtrlParcelas;
+
+interface
+
+uses uController;
+
+type ctrlParcelas = class (Ctrl)
+  private
+
+  protected
+
+  public
+
+end;
+
+implementation
+
+end.

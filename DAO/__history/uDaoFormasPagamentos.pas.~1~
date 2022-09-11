@@ -1,0 +1,55 @@
+unit uDaoFormasPagamentos;
+
+interface
+
+uses uFilterSearch, uDAO, uFormaPagamento;
+
+type daoFormasPagamentos = class( DAO )
+  private
+  protected
+  public
+    constructor crieObj;                              override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+{ daoFormasPagamentos }
+
+function daoFormasPagamentos.carregar(pObj: TObject): string;
+begin
+
+end;
+
+constructor daoFormasPagamentos.crieObj;
+begin
+  inherited;
+
+end;
+
+function daoFormasPagamentos.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function daoFormasPagamentos.getDS: TObject;
+begin
+
+end;
+
+function daoFormasPagamentos.pesquisar(AFilter: TFilterSearch;
+  pChave: string): string;
+begin
+
+end;
+
+function daoFormasPagamentos.salvar(pObj: TObject): string;
+begin
+
+end;
+
+end.

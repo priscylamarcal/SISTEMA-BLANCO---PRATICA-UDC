@@ -1,0 +1,69 @@
+unit uCtrlFormasPagamentos;
+
+interface
+
+uses uController, uFilterSearch;
+
+type ctrlFormasPagamentos = class( Ctrl )
+  private
+  protected
+  public
+    constructor crieObj;                              override;
+    destructor destrua_se;                            override;
+    procedure setDM ( pDM : TObject );                override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+{ ctrlFormasPagamentos }
+
+function ctrlFormasPagamentos.carregar(pObj: TObject): string;
+begin
+
+end;
+
+constructor ctrlFormasPagamentos.crieObj;
+begin
+  inherited;
+
+end;
+
+destructor ctrlFormasPagamentos.destrua_se;
+begin
+
+  inherited;
+end;
+
+function ctrlFormasPagamentos.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function ctrlFormasPagamentos.getDS: TObject;
+begin
+
+end;
+
+function ctrlFormasPagamentos.pesquisar(AFilter: TFilterSearch;
+  pChave: string): string;
+begin
+
+end;
+
+function ctrlFormasPagamentos.salvar(pObj: TObject): string;
+begin
+
+end;
+
+procedure ctrlFormasPagamentos.setDM(pDM: TObject);
+begin
+  inherited;
+
+end;
+
+end.

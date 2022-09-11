@@ -1,0 +1,5 @@
+inherited form_consulta_pai2: Tform_consulta_pai2
+  Caption = 'form_consulta_pai2'
+  PixelsPerInch = 96
+  TextHeight = 13
+end

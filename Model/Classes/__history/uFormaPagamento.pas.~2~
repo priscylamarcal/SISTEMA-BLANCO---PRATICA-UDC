@@ -1,0 +1,54 @@
+﻿unit uFormaPagamento;
+
+interface
+
+uses uPai;
+
+type FormaPagamento = class( Pai )
+  private
+  protected
+    formaPagamento : string[80];
+  public
+    constructor crieObj;
+    destructor destrua_se;
+    procedure setFormaPagamento ( pFormaPagamento : string );
+    function getFormaPagamento : string;
+    function clone : FormaPagamento;
+end;
+
+implementation
+
+{ FormaPagamento }
+
+constructor FormaPagamento.crieObj;
+begin
+  inherited;
+  formaPagamento:= '';
+end;
+
+destructor FormaPagamento.destrua_se;
+begin
+
+end;
+
+function FormaPagamento.getFormaPagamento: string;
+begin
+  Result:= formaPagamento;
+end;
+
+procedure FormaPagamento.setFormaPagamento(pFormaPagamento: string);
+begin
+  formaPagamento:= pFormaPagamento;
+end;
+
+function FormaPagamento.clone: FormaPagamento;
+begin
+  Result:= FormaPagamento.crieObj;
+  Result.setCodigo(codigo);
+  Result.setFormaPagamento( formaPagamento );
+  Result.setDataCad(dataCad);
+  Result.setUltAlt(ultAlt);
+  Result.setCodUsu(codUsu);
+end;
+
+end.

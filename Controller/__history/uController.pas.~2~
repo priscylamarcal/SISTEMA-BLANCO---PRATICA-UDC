@@ -1,0 +1,21 @@
+unit uController;
+
+interface
+
+type Ctrl = class
+  private
+  protected
+  public
+    constructor crieObj;
+    destructor destrua_se;
+    procedure setDM ( pDM : TObject );
+    function getDS : TObject;
+    function pesquisar ( pChave : string ) : string;
+    function salvar ( pObj : TObject ) : string;
+    function excluir ( pObj : TObject ) : string;
+    function carregar ( pObj : TObject ) : string;
+end;
+
+implementation
+
+end.

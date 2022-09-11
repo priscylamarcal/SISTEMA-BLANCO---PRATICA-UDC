@@ -1,0 +1,49 @@
+﻿unit uColecoes;
+
+interface
+
+uses uPai;
+
+type colecoes = class( Pai )
+  private
+  protected
+     colecao : string[80];
+  public
+     constructor crieObj;
+     destructor destrua_se;
+     procedure setColecao ( pColecao : string );
+     function getColecao : string;
+     function clone : colecoes;
+end;
+
+implementation
+
+{ colecoes }
+
+constructor colecoes.crieObj;
+begin
+  inherited;
+  colecao:= '';
+end;
+
+destructor colecoes.destrua_se;
+begin
+
+end;
+
+function colecoes.getColecao: string;
+begin
+  Result:= colecao;
+end;
+
+procedure colecoes.setColecao(pColecao: string);
+begin
+  colecao:= pColecao;
+end;
+
+function colecoes.clone: colecoes;
+begin
+  Result:= colecoes
+end;
+
+end.

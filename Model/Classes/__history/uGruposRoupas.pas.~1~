@@ -1,0 +1,22 @@
+unit uGruposRoupas;
+
+interface
+
+uses uPai;
+
+type gruposRoupas = class( Pai )
+  private
+
+  protected
+    grupoRoupa : string[80];
+  public
+    constructor crieObj;
+    destructor destrua_se;
+    procedure setGrupoRoupa ( pGrupoRoupa : string );
+    function getGrupoRoupa : string;
+    function clone : gruposRoupas;
+end;
+
+implementation
+
+end.

@@ -1,0 +1,15 @@
+unit uColecoes;
+
+interface
+
+uses uPai;
+
+type colecoes = class( Pai )
+  private
+  protected
+  public
+end;
+
+implementation
+
+end.

@@ -1,0 +1,109 @@
+unit uConsultaPai;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Data.DB, Vcl.Grids,
+  Vcl.DBGrids, Vcl.Buttons, Vcl.StdCtrls, campoEdit, ComboBox;
+
+type
+  Tform_consulta_pai = class(TForm)
+    pnl_fundo: TPanel;
+    pnl_topo: TPanel;
+    pnl_bottom: TPanel;
+    pnl_db_grid: TPanel;
+    pnl_dentro_topo: TPanel;
+    DBGrid1: TDBGrid;
+    pnl_botao_sair: TPanel;
+    btn_botao_sair: TSpeedButton;
+    pnl_botao_excluir: TPanel;
+    btn_botao_excluir: TSpeedButton;
+    pnl_botao_alterar: TPanel;
+    btn_botao_alterar: TSpeedButton;
+    pnl_botao_novo: TPanel;
+    btn_botao_novo: TSpeedButton;
+    combobox_tipo_filtro: TComboBox1;
+    edt_pesquisa: PriTEdit;
+    pnl_botao_pesquisar: TPanel;
+    spb_botao_pesquisar: TSpeedButton;
+
+    procedure btn_botao_sairMouseEnter(Sender: TObject);
+    procedure btn_botao_sairMouseLeave(Sender: TObject);
+
+    procedure btn_botao_excluirMouseEnter(Sender: TObject);
+    procedure btn_botao_excluirMouseLeave(Sender: TObject);
+
+    procedure btn_botao_alterarMouseEnter(Sender: TObject);
+    procedure btn_botao_alterarMouseLeave(Sender: TObject);
+
+    procedure btn_botao_novoMouseEnter(Sender: TObject);
+    procedure btn_botao_novoMouseLeave(Sender: TObject);
+
+    procedure spb_botao_pesquisarMouseEnter(Sender: TObject);
+    procedure spb_botao_pesquisarMouseLeave(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  form_consulta_pai: Tform_consulta_pai;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tform_consulta_pai.btn_botao_sairMouseEnter(Sender: TObject);
+begin
+  btn_botao_sair.Font.Style:= [fsBold];
+end;
+
+procedure Tform_consulta_pai.btn_botao_sairMouseLeave(Sender: TObject);
+begin
+  pnl_botao_sair.Color:= $00F5F5F5;
+  btn_botao_sair.Font.Style:= [];
+end;
+
+procedure Tform_consulta_pai.btn_botao_excluirMouseEnter(Sender: TObject);
+begin
+  btn_botao_excluir.Font.Style:= [fsBold];
+end;
+
+procedure Tform_consulta_pai.btn_botao_excluirMouseLeave(Sender: TObject);
+begin
+  btn_botao_excluir.Font.Style:= [];
+end;
+
+procedure Tform_consulta_pai.btn_botao_alterarMouseEnter(Sender: TObject);
+begin
+  btn_botao_alterar.Font.Style:= [fsBold];
+end;
+
+procedure Tform_consulta_pai.btn_botao_alterarMouseLeave(Sender: TObject);
+begin
+  btn_botao_alterar.Font.Style:= [];
+end;
+
+procedure Tform_consulta_pai.btn_botao_novoMouseEnter(Sender: TObject);
+begin
+  btn_botao_novo.Font.Style:= [fsBold];
+end;
+
+procedure Tform_consulta_pai.btn_botao_novoMouseLeave(Sender: TObject);
+begin
+  btn_botao_novo.Font.Style:= [];
+end;
+
+procedure Tform_consulta_pai.spb_botao_pesquisarMouseEnter(Sender: TObject);
+begin
+  pnl_botao_pesquisar.Font.Style:= [fsBold];
+end;
+
+procedure Tform_consulta_pai.spb_botao_pesquisarMouseLeave(Sender: TObject);
+begin
+  pnl_botao_pesquisar.Font.Style:= [];
+end;
+
+end.

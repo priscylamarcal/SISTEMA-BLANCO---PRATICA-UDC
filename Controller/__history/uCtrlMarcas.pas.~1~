@@ -1,0 +1,68 @@
+unit uCtrlMarcas;
+
+interface
+
+uses uFilterSearch, uController;
+
+type ctrlMarcas = class( Ctrl )
+  private
+  protected
+  public
+    constructor crieObj;                              override;
+    destructor destrua_se;                            override;
+    procedure setDM ( pDM : TObject );                override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+{ ctrlMarcas }
+
+function ctrlMarcas.carregar(pObj: TObject): string;
+begin
+
+end;
+
+constructor ctrlMarcas.crieObj;
+begin
+  inherited;
+
+end;
+
+destructor ctrlMarcas.destrua_se;
+begin
+
+  inherited;
+end;
+
+function ctrlMarcas.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function ctrlMarcas.getDS: TObject;
+begin
+
+end;
+
+function ctrlMarcas.pesquisar(AFilter: TFilterSearch; pChave: string): string;
+begin
+
+end;
+
+function ctrlMarcas.salvar(pObj: TObject): string;
+begin
+
+end;
+
+procedure ctrlMarcas.setDM(pDM: TObject);
+begin
+  inherited;
+
+end;
+
+end.

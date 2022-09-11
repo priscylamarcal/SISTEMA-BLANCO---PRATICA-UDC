@@ -1,0 +1,69 @@
+unit uCtrlTamanhos;
+
+interface
+
+uses uController, uFilterSearch, uDaoTamanhos;
+
+type ctrlTamanhos = class( Ctrl )
+  private
+  protected
+    aDaoTamanhos : daoTamanhos;
+  public
+    constructor crieObj;                              override;
+    destructor destrua_se;                            override;
+    procedure setDM ( pDM : TObject );                override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+{ ctrlTamanhos }
+
+function ctrlTamanhos.carregar(pObj: TObject): string;
+begin
+
+end;
+
+constructor ctrlTamanhos.crieObj;
+begin
+  inherited;
+
+end;
+
+destructor ctrlTamanhos.destrua_se;
+begin
+
+  inherited;
+end;
+
+function ctrlTamanhos.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function ctrlTamanhos.getDS: TObject;
+begin
+
+end;
+
+function ctrlTamanhos.pesquisar(AFilter: TFilterSearch; pChave: string): string;
+begin
+
+end;
+
+function ctrlTamanhos.salvar(pObj: TObject): string;
+begin
+
+end;
+
+procedure ctrlTamanhos.setDM(pDM: TObject);
+begin
+  inherited;
+
+end;
+
+end.

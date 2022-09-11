@@ -1,0 +1,69 @@
+unit uCtrlCores;
+
+interface
+
+uses uController,
+     uFilterSearch;
+
+type ctrlCores = class( Ctrl )
+  private
+  protected
+  public
+    constructor crieObj;                              override;
+    destructor destrua_se;                            override;
+    procedure setDM ( pDM : TObject );                override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+{ ctrlCores }
+
+function ctrlCores.carregar(pObj: TObject): string;
+begin
+
+end;
+
+constructor ctrlCores.crieObj;
+begin
+  inherited;
+
+end;
+
+destructor ctrlCores.destrua_se;
+begin
+
+  inherited;
+end;
+
+function ctrlCores.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function ctrlCores.getDS: TObject;
+begin
+
+end;
+
+function ctrlCores.pesquisar(AFilter: TFilterSearch; pChave: string): string;
+begin
+
+end;
+
+function ctrlCores.salvar(pObj: TObject): string;
+begin
+
+end;
+
+procedure ctrlCores.setDM(pDM: TObject);
+begin
+  inherited;
+
+end;
+
+end.

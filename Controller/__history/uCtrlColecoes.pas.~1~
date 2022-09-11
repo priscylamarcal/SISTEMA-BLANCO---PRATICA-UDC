@@ -1,0 +1,15 @@
+unit uCtrlColecoes;
+
+interface
+
+uses uFilterSearch, uController;
+
+type ctrlColecoes = class( Ctrl )
+  private
+  protected
+  public
+end;
+
+implementation
+
+end.

@@ -1,0 +1,54 @@
+unit uDaoTamanhos;
+
+interface
+
+uses uDAO, uFilterSearch, uTamanhos;
+
+type daoTamanhos = class( DAO )
+  private
+  protected
+  public
+    constructor crieObj;                              override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+{ daoTamanhos }
+
+function daoTamanhos.carregar(pObj: TObject): string;
+begin
+
+end;
+
+constructor daoTamanhos.crieObj;
+begin
+  inherited;
+
+end;
+
+function daoTamanhos.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function daoTamanhos.getDS: TObject;
+begin
+
+end;
+
+function daoTamanhos.pesquisar(AFilter: TFilterSearch; pChave: string): string;
+begin
+
+end;
+
+function daoTamanhos.salvar(pObj: TObject): string;
+begin
+
+end;
+
+end.

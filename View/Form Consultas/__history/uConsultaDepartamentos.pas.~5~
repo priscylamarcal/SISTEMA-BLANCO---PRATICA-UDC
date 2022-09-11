@@ -1,0 +1,113 @@
+unit uConsultaDepartamentos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uConsultaPai, Data.DB, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, ComboBox, campoEdit, Vcl.Buttons, Vcl.ExtCtrls,
+  uCadastroDepartamentos,
+  uCtrlDepartamentos,
+  uDepartamentos;
+
+type
+  Tform_consulta_departamentos = class(Tform_consulta_pai)
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+    oCadastroDepartamentos : Tform_cadastro_departamento;
+
+    oDepartamento : Departamentos;
+    aCtrlDepartamentos : ctrlDepartamentos;
+  public
+    { Public declarations }
+    procedure novo;                                           override;
+    procedure alterar;                                        override;
+    procedure excluir;                                        override;
+    procedure sair;                                           override;
+    procedure pesquisar;                                      override;
+    procedure conhecaObj ( pCtrl : TObject; pObj : TObject ); override;
+    procedure setFrmCadastro ( pObj : TObject );                  override;
+  end;
+
+var
+  form_consulta_departamentos: Tform_consulta_departamentos;
+
+implementation
+
+{$R *.dfm}
+
+{ Tform_consulta_departamentos }
+
+procedure Tform_consulta_departamentos.alterar;
+begin
+  inherited;
+  aCtrlDepartamentos.carregar( oDepartamento );
+  oCadastroDepartamentos.conhecaObj( aCtrlDepartamentos, oDepartamento );
+
+  oCadastroDepartamentos.Caption:= 'Alteração de Departamento';
+
+  oCadastroDepartamentos.ShowModal;
+end;
+
+procedure Tform_consulta_departamentos.conhecaObj(pCtrl, pObj: TObject);
+begin
+  inherited;
+  oDepartamento:= Departamentos( pObj );
+  aCtrlDepartamentos:= ctrlDepartamentos( pCtrl );
+end;
+
+procedure Tform_consulta_departamentos.excluir;
+begin
+  inherited;
+
+end;
+
+procedure Tform_consulta_departamentos.FormShow(Sender: TObject);
+begin
+  inherited;
+  combobox_tipo_filtro.ItemIndex:= 2;
+  edt_pesquisa.Clear;
+  self.pesquisar; inherited;
+end;
+
+procedure Tform_consulta_departamentos.novo;
+var form : Tform_cadastro_departamento;
+begin
+  inherited;
+  oCadastroDepartamentos.conhecaObj( aCtrlDepartamentos, oDepartamento );
+  oCadastroDepartamentos.limpaEdt;
+
+  oCadastroDepartamentos.Caption:= 'Cadastro de Departamento';
+
+  oCadastroDepartamentos.ShowModal;
+
+  if form.salvou then
+     self.pesquisar; inherited;
+
+end;
+
+procedure Tform_consulta_departamentos.pesquisar;
+begin
+  inherited;
+
+end;
+
+procedure Tform_consulta_departamentos.sair;
+begin
+  inherited;
+
+end;
+
+procedure Tform_consulta_departamentos.setFrmCadastro(pObj: TObject);
+var form : Tform_cadastro_departamento;
+begin
+  inherited;
+  oCadastroDepartamentos:= Tform_cadastro_departamento( pObj );
+
+  if form.salvou then
+     self.pesquisar; inherited;
+
+end;
+
+end.

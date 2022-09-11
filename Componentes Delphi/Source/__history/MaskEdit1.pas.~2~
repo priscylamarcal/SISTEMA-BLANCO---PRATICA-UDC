@@ -1,0 +1,61 @@
+unit MaskEdit1;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Vcl.Controls, Vcl.StdCtrls, Vcl.Mask,
+  Vcl.Graphics;
+
+type
+  PriTMaskEdit = class(TMaskEdit)
+  private
+    FMudarCor: TColor;
+    procedure SetMudarCor(const Value: TColor);
+    { Private declarations }
+  protected
+    { Protected declarations }
+    procedure DoEnter; override;
+    procedure DoExit;  override;
+  public
+    { Public declarations }
+    constructor create ( AOwner : TComponent ); override;
+  published
+    { Published declarations }
+    property MudarCor : TColor read FMudarCor write SetMudarCor;
+  end;
+
+procedure Register;
+
+implementation
+
+procedure Register;
+begin
+  RegisterComponents('priscyla', [PriTMaskEdit]);
+end;
+
+{ PriTMaskEdit }
+
+constructor PriTMaskEdit.create(AOwner: TComponent);
+begin
+  inherited Create ( AOwner );
+  FMudarCor:= clCream;
+end;
+
+procedure PriTMaskEdit.DoEnter;
+begin
+  inherited;
+  Color:= FMudarCor;
+end;
+
+procedure PriTMaskEdit.DoExit;
+begin
+  inherited;
+  Color:= clWindow;
+end;
+
+procedure PriTMaskEdit.SetMudarCor(const Value: TColor);
+begin
+  FMudarCor := Value;
+end;
+
+end.

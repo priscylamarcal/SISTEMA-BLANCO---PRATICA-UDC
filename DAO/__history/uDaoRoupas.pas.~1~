@@ -1,0 +1,54 @@
+unit uDaoRoupas;
+
+interface
+
+uses uDAO, uFilterSearch;
+
+type daoRoupas = class( DAO )
+  private
+  protected
+  public
+    constructor crieObj;                              override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+{ daoRoupas }
+
+function daoRoupas.carregar(pObj: TObject): string;
+begin
+
+end;
+
+constructor daoRoupas.crieObj;
+begin
+  inherited;
+
+end;
+
+function daoRoupas.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function daoRoupas.getDS: TObject;
+begin
+
+end;
+
+function daoRoupas.pesquisar(AFilter: TFilterSearch; pChave: string): string;
+begin
+
+end;
+
+function daoRoupas.salvar(pObj: TObject): string;
+begin
+
+end;
+
+end.

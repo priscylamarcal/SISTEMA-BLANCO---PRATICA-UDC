@@ -1,0 +1,5 @@
+inherited form_cadastro_colecoes: Tform_cadastro_colecoes
+  Caption = 'Cadastro de Cole'#231#227'o'
+  PixelsPerInch = 96
+  TextHeight = 13
+end

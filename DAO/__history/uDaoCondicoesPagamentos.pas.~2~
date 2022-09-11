@@ -1,0 +1,117 @@
+unit uDaoCondicoesPagamentos;
+
+interface
+
+uses uDAO, uFilterSearch, uCondicoesPagamentos, uFormaPagamento;
+
+type daoCondicoesPagamentos = class ( DAO )
+  private
+  protected
+  public
+    constructor crieObj;                              override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+uses
+  System.SysUtils;
+
+{ daoCondicoesPagamentos }
+
+function daoCondicoesPagamentos.carregar(pObj: TObject): string;
+var mForma : FormasPagamentos; mCondicao : CondicoesPagamentos;
+begin
+  mCondicao:= CondicoesPagamentos( pObj );
+
+  mForma:= mCondicao.getaFormaPagamento;
+
+  mCondicao.setCodigo( aDM.QCondicoes.FieldByName('CODCONDICAO').Value );
+  mCondicao.setCondicao( aDM.QCondicoes.FieldByName('ESTADO').AsString );
+
+
+
+  mCondicao.setDataCad( aDM.QCondicoes.FieldByName('DATACAD').AsDateTime );
+end;
+
+constructor daoCondicoesPagamentos.crieObj;
+begin
+  inherited;
+
+end;
+
+function daoCondicoesPagamentos.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function daoCondicoesPagamentos.getDS: TObject;
+begin
+  Result:= aDM.DSCondicoes;
+end;
+
+function daoCondicoesPagamentos.pesquisar(AFilter: TFilterSearch;
+  pChave: string): string;
+var msql : string;
+begin
+    msql:= '';
+
+    case AFilter.TipoConsulta of
+
+     TpCCodigo:
+     begin
+       msql:= 'SELECT * FROM CONDICOES_PAGAMENTOS WHERE CODCONDICAO =' + IntToStr( AFilter.Codigo );
+     end;
+
+     TpCParam:
+     begin
+       msql:= ( 'SELECT * FROM CONDICOES_PAGAMENTOS WHERE CONDICAO LIKE  ' + QuotedStr( '%' + AFilter.Parametro + '%' ) );
+     end;
+
+     TpCTODOS:
+     begin
+       msql:= 'SELECT * FROM CONDICOES_PAGAMENTOS ORDER BY CODCONDICAO';
+     end;
+
+    end;
+
+    aDM.QCondicoes.Active:= false;
+    aDM.QCondicoes.SQL.Text:=msql;
+    aDM.QCondicoes.Open;
+    result:= '';
+end;
+
+function daoCondicoesPagamentos.salvar(pObj: TObject): string;
+var mForma : FormasPagamentos; mCondicao : CondicoesPagamentos;
+begin
+  mCondicao:= CondicoesPagamentos( pObj );
+
+  mForma:= mCondicao.getaFormaPagamento;
+
+  aDM.Transacao.StartTransaction;
+  try
+    if mCondicao.getCodigo = 0 then
+       aDM.QCondicoes.Insert
+    else
+       aDM.QCondicoes.Edit;
+
+    aDM.QCondicoes.FieldByName('CODCONDICAO').AsInteger:= mCondicao.getCodigo;
+    aDM.QCondicoes.FieldByName('CONDICAO').AsString:= mCondicao.getCondicao;
+    aDM.QCondicoes.FieldByName('DATACAD').AsDateTime:= mCondicao.getDataCad;
+    aDM.QCondicoes.FieldByName('CODPARCELAS').AsInteger:= mCondicao.getTotalParcelas;
+
+
+
+    aDM.QEstados.Post;
+
+    aDM.Transacao.Commit;
+  except
+    aDM.Transacao.Rollback;
+  end;
+end;
+
+end.

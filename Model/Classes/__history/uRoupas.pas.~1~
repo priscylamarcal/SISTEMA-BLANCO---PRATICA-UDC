@@ -1,0 +1,59 @@
+unit uRoupas;
+
+interface
+
+uses uPai, uGruposRoupas, uMarcas, uTamanhos, uFornecedores, uColecoes, uCores;
+
+type Roupas = class( Pai )
+  private
+  protected
+    descricao    : string[80];
+    cod_barra    : string[50];
+    referencia   : string[50];
+    umGrupoRoupa : GruposRoupas;
+    umaMarca     : Marcas;
+    valor_custo  : real;
+    lucro        : real;
+    valor_venda  : real;
+    umaCor       : Cores;
+    umTamanho    : Tamanhos;
+    umFornecedor : Fornecedores;
+    umaColecao   : Colecoes;
+    obs          : string[250];
+  public
+    constructor crieObj;
+    destructor destrua_se;
+
+    procedure setDescricao ( pDescricao : string );
+    procedure setCodBarra ( pCodBarra : string );
+    procedure setReferencia ( pReferencia : string );
+    procedure setoGrupoRoupa ( poGrupoRoupa : GruposRoupas );
+    procedure setaMarca ( paMarca : Marcas );
+    procedure setValorCusto ( pValorCusto : real );
+    procedure setLucro ( pLucro : real );
+    procedure setValorVenda ( pValorVenda : real );
+    procedure setaCor ( paCor : Cores );
+    procedure setoTamanho ( poTamanho : Tamanhos );
+    procedure setoFornecedor ( poFornecedor : Fornecedores );
+    procedure setaColecao ( paColecao : Colecoes );
+
+    function getDescricao : string;
+    function getCodBarra : string;
+    function getReferencia : string;
+    function getoGrupoRoupa : GruposRoupas;
+    function getaMarca : Marcas;
+    function getValorCusto : real;
+    function getLucro : real;
+    function getValorVenda : real;
+    function getaCor : Cores;
+    function getoTamanho : Tamanhos;
+    function getoFornecedor : Fornecedores;
+    function getaColecao : Colecoes;
+    function getObs : string;
+
+    function clone : Roupas;
+end;
+
+implementation
+
+end.

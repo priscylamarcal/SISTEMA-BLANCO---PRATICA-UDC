@@ -1,0 +1,5 @@
+inherited form_cadastro_tamanhos: Tform_cadastro_tamanhos
+  Caption = 'Cadastro de Tamanho'
+  PixelsPerInch = 96
+  TextHeight = 13
+end

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/04/14 19:44:52.000.486,=rtl.dcp</Transaction>
+    <Transaction>2021/04/14 19:46:16.000.627,D:\Embarcadero\Studio\Projects\Package1.dproj=D:\Componentes Delphi\Projetos Componentes\componentePriscyla.dproj</Transaction>
+    <Transaction>2021/04/14 19:48:32.000.443,=vcl.dcp</Transaction>
+    <Transaction>2021/04/14 19:48:32.000.417,=D:\Componentes Delphi\Source\campoEdit.pas</Transaction>
+    <Transaction>2021/04/14 19:59:40.000.000,=D:\Componentes Delphi\Source\MaskEdit1.pas</Transaction>
+    <Transaction>2021/10/16 15:29:40.000.267,=rtl.dcp</Transaction>
+    <Transaction>2021/10/16 15:29:45.000.863,=designide.dcp</Transaction>
+    <Transaction>2021/10/16 15:29:45.000.765,=D:\Desenvolvimento\Projetos\sistema-blanco\Componentes Delphi\Source\ComboBox.pas</Transaction>
+    <Transaction>2021/10/16 15:29:45.000.975,=xmlrtl.dcp</Transaction>
+    <Transaction>2021/10/16 15:29:45.000.844,=D:\Desenvolvimento\Projetos\sistema-blanco\Componentes Delphi\Source\MaskEdit1.pas</Transaction>
+    <Transaction>2021/10/16 15:29:45.000.957,=vclx.dcp</Transaction>
+    <Transaction>2021/10/16 15:29:45.000.937,=vclactnband.dcp</Transaction>
+    <Transaction>2021/10/16 15:29:45.000.897,=vcl.dcp</Transaction>
+    <Transaction>2021/10/16 15:29:45.000.676,=D:\Desenvolvimento\Projetos\sistema-blanco\Componentes Delphi\Source\campoEdit.pas</Transaction>
+  </Transactions>
+</BorlandProject>

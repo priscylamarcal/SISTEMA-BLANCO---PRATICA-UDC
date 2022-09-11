@@ -1,0 +1,28 @@
+unit uCtrlParcelas;
+
+interface
+
+uses uController, uFilterSearch, uCtrlFormasPagamentos;
+
+type ctrlParcelas = class (Ctrl)
+  private
+
+  protected
+//    aDaoParcelas :
+  public
+    constructor crieObj;                              override;
+    destructor destrua_se;                            override;
+    procedure setDM ( pDM : TObject );                override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+
+    procedure setCtrlFormas ( pCtrl : ctrlFormasPagamentos );
+    function getCtrlFormas : ctrlFormasPagamentos;
+end;
+
+implementation
+
+end.

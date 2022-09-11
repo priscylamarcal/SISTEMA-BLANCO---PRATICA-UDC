@@ -1,0 +1,69 @@
+unit uCtrlGruposRoupas;
+
+interface
+
+uses uController, uFilterSearch;
+
+type ctrlGruposRoupas = class( Ctrl )
+  private
+  protected
+  public
+    constructor crieObj;                              override;
+    destructor destrua_se;                            override;
+    procedure setDM ( pDM : TObject );                override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+{ ctrlGruposRoupas }
+
+function ctrlGruposRoupas.carregar(pObj: TObject): string;
+begin
+
+end;
+
+constructor ctrlGruposRoupas.crieObj;
+begin
+  inherited;
+
+end;
+
+destructor ctrlGruposRoupas.destrua_se;
+begin
+
+  inherited;
+end;
+
+function ctrlGruposRoupas.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function ctrlGruposRoupas.getDS: TObject;
+begin
+
+end;
+
+function ctrlGruposRoupas.pesquisar(AFilter: TFilterSearch;
+  pChave: string): string;
+begin
+
+end;
+
+function ctrlGruposRoupas.salvar(pObj: TObject): string;
+begin
+
+end;
+
+procedure ctrlGruposRoupas.setDM(pDM: TObject);
+begin
+  inherited;
+
+end;
+
+end.

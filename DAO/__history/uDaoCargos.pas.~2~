@@ -1,0 +1,61 @@
+unit uDaoCargos;
+
+interface
+
+uses uDAO,
+     uFilterSearch,
+     uCargos,
+     uDepartamentos;
+
+type daoCargos = class( DAO )
+  private
+  protected
+  public
+    constructor crieObj;                              override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+{ daoCargos }
+
+function daoCargos.carregar(pObj: TObject): string;
+var mCargo : Cargos; mDepartamento : Departamentos;
+begin
+  mCargo:= Cargos( pObj );
+  mDepartamento:= mCargo.getoDepartamento;
+
+
+end;
+
+constructor daoCargos.crieObj;
+begin
+  inherited;
+
+end;
+
+function daoCargos.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function daoCargos.getDS: TObject;
+begin
+
+end;
+
+function daoCargos.pesquisar(AFilter: TFilterSearch; pChave: string): string;
+begin
+
+end;
+
+function daoCargos.salvar(pObj: TObject): string;
+begin
+
+end;
+
+end.

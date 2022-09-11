@@ -1,0 +1,70 @@
+unit uCtrlDepartamentos;
+
+interface
+
+uses uController,
+     uFilterSearch;
+
+type ctrlDepartamentos = class(Ctrl)
+  private
+  protected
+  public
+    constructor crieObj;                              override;
+    destructor destrua_se;                            override;
+    procedure setDM ( pDM : TObject );                override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+{ ctrlDepartamentos }
+
+function ctrlDepartamentos.carregar(pObj: TObject): string;
+begin
+
+end;
+
+constructor ctrlDepartamentos.crieObj;
+begin
+  inherited;
+
+end;
+
+destructor ctrlDepartamentos.destrua_se;
+begin
+
+  inherited;
+end;
+
+function ctrlDepartamentos.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function ctrlDepartamentos.getDS: TObject;
+begin
+
+end;
+
+function ctrlDepartamentos.pesquisar(AFilter: TFilterSearch;
+  pChave: string): string;
+begin
+
+end;
+
+function ctrlDepartamentos.salvar(pObj: TObject): string;
+begin
+
+end;
+
+procedure ctrlDepartamentos.setDM(pDM: TObject);
+begin
+  inherited;
+
+end;
+
+end.

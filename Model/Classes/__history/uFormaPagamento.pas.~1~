@@ -1,0 +1,48 @@
+unit uFormaPagamento;
+
+interface
+
+uses uPai;
+
+type FormaPagamento = class( Pai )
+  private
+  protected
+    formaPagamento : string[80];
+  public
+    constructor crieObj;
+    destructor destrua_se;
+    procedure setFormaPagamento ( pFormaPagamento : string );
+    function getFormaPagamento : string;
+    function clone : FormaPagamento;
+end;
+
+implementation
+
+{ FormaPagamento }
+
+function FormaPagamento.clone: FormaPagamento;
+begin
+
+end;
+
+constructor FormaPagamento.crieObj;
+begin
+
+end;
+
+destructor FormaPagamento.destrua_se;
+begin
+
+end;
+
+function FormaPagamento.getFormaPagamento: string;
+begin
+
+end;
+
+procedure FormaPagamento.setFormaPagamento(pFormaPagamento: string);
+begin
+
+end;
+
+end.

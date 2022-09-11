@@ -1,0 +1,56 @@
+unit uDaoDepartamentos;
+
+interface
+
+uses uDAO,
+     uFilterSearch;
+
+type daoDepartamentos = class( DAO )
+  private
+  protected
+  public
+    constructor crieObj;                              override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+{ daoDepartamentos }
+
+function daoDepartamentos.carregar(pObj: TObject): string;
+begin
+
+end;
+
+constructor daoDepartamentos.crieObj;
+begin
+  inherited;
+
+end;
+
+function daoDepartamentos.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function daoDepartamentos.getDS: TObject;
+begin
+  Result:= aDM.DSDepartamentos;
+end;
+
+function daoDepartamentos.pesquisar(AFilter: TFilterSearch;
+  pChave: string): string;
+begin
+
+end;
+
+function daoDepartamentos.salvar(pObj: TObject): string;
+begin
+
+end;
+
+end.

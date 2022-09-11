@@ -1,0 +1,17 @@
+unit uDaoCores;
+
+interface
+
+uses uFilterSearch,
+     uDAO,
+     uCores;
+
+type daoCores = class( DAO )
+  private
+  protected
+  public
+end;
+
+implementation
+
+end.

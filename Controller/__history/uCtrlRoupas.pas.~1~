@@ -1,0 +1,18 @@
+unit uCtrlRoupas;
+
+interface
+
+uses uDaoRoupas, uFilterSearch, uController;
+
+type ctrlRoupas = class( Ctrl )
+  private
+  protected
+    aDaoRoupas : daoRoupas;
+
+
+  public
+end;
+
+implementation
+
+end.

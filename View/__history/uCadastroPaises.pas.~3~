@@ -1,0 +1,76 @@
+unit uCadastroPaises;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uCadastroPai, Vcl.StdCtrls, campoEdit,
+  Vcl.Buttons, Vcl.ExtCtrls;
+
+type
+  Tform_cadastro_paises = class(Tform_cadastro_pai)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure conhecaObj ( pCtrl, pObj : TObject );  override;
+    procedure salvar;         override;
+    procedure sair;           override;
+    procedure limpaEdt;       override;
+    procedure carregaEdt;     override;
+    procedure bloqueiaEdt;    override;
+    procedure desbloqueiaEdt; override;
+  end;
+
+var
+  form_cadastro_paises: Tform_cadastro_paises;
+
+implementation
+
+{$R *.dfm}
+
+{ Tform_cadastro_paises }
+
+procedure Tform_cadastro_paises.bloqueiaEdt;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_paises.carregaEdt;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_paises.conhecaObj(pCtrl, pObj: TObject);
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_paises.desbloqueiaEdt;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_paises.limpaEdt;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_paises.sair;
+begin
+  inherited;
+
+end;
+
+procedure Tform_cadastro_paises.salvar;
+begin
+  inherited;
+
+end;
+
+end.

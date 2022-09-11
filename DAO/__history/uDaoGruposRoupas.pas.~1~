@@ -1,0 +1,55 @@
+unit uDaoGruposRoupas;
+
+interface
+
+uses uDAO, uFilterSearch;
+
+type daoGruposRoupas = class( DAO )
+  private
+  protected
+  public
+    constructor crieObj;                              override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+{ daoGruposRoupas }
+
+function daoGruposRoupas.carregar(pObj: TObject): string;
+begin
+
+end;
+
+constructor daoGruposRoupas.crieObj;
+begin
+  inherited;
+
+end;
+
+function daoGruposRoupas.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function daoGruposRoupas.getDS: TObject;
+begin
+
+end;
+
+function daoGruposRoupas.pesquisar(AFilter: TFilterSearch;
+  pChave: string): string;
+begin
+
+end;
+
+function daoGruposRoupas.salvar(pObj: TObject): string;
+begin
+
+end;
+
+end.

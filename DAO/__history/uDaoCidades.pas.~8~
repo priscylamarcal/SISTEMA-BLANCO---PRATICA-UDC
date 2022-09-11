@@ -1,0 +1,69 @@
+unit uDaoCidades;
+
+interface
+
+uses uCidades, uEstados, uFilterSearch, uDAO, uPaises;
+
+type daoCidades = class( DAO )
+  private
+  protected
+  public
+    constructor crieObj;                              override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+uses
+  System.SysUtils;
+
+{ daoCidades }
+
+function daoCidades.carregar(pObj: TObject): string;
+var mCidade : Cidades; mEstado : Estados; mPais : Paises;
+begin
+  mCidade:= Cidades( pObj );
+  mEstado:= mCidade.getoEstado;
+
+  mEstado.setCodigo( aDM.QEstados.FieldByName('CODESTADO').Value );
+  mEstado.setEstado( aDM.QEstados.FieldByName('ESTADO').AsString );
+  mEstado.setUF( aDM.QEstados.FieldByName('UF').AsString );
+
+  mPais.setCodigo( aDM.QEstados.FieldByName('CODPAIS').Value );
+  mPais.setPais( aDM.QPaises.FieldByName('PAIS').AsString );
+  mPais.setDDI( aDM.QPaises.FieldByName('DDI').AsString );
+  mPais.setSigla( aDM.QPaises.FieldByName('SIGLA').AsString );
+end;
+
+constructor daoCidades.crieObj;
+begin
+  inherited;
+
+end;
+
+function daoCidades.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function daoCidades.getDS: TObject;
+begin
+  Result:= aDM.DSCidades;
+end;
+
+function daoCidades.pesquisar(AFilter: TFilterSearch; pChave: string): string;
+var msql : string;
+begin
+
+end;
+
+function daoCidades.salvar(pObj: TObject): string;
+begin
+
+end;
+
+end.

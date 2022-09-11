@@ -1,0 +1,59 @@
+unit uDaoCores;
+
+interface
+
+uses uFilterSearch,
+     uDAO,
+     uCores;
+
+type daoCores = class( DAO )
+  private
+  protected
+  public
+    constructor crieObj;                              override;
+    function getDS : TObject;                         override;
+    function pesquisar ( AFilter: TFilterSearch; pChave : string ): string; override;
+    function salvar ( pObj : TObject ) : string;      override;
+    function excluir ( pObj : TObject ) : string;     override;
+    function carregar ( pObj : TObject ) : string;    override;
+end;
+
+implementation
+
+{ daoCores }
+
+function daoCores.carregar(pObj: TObject): string;
+var mCor : Cores;
+begin
+  mCor:= Cores( pObj );
+
+  mCor.setCodigo(aDM.QCores.FieldByName('CODCOR').Value);
+end;
+
+constructor daoCores.crieObj;
+begin
+  inherited;
+
+end;
+
+function daoCores.excluir(pObj: TObject): string;
+begin
+
+end;
+
+function daoCores.getDS: TObject;
+begin
+  Result:= aDM.DSCores;
+end;
+
+function daoCores.pesquisar(AFilter: TFilterSearch; pChave: string): string;
+begin
+
+end;
+
+function daoCores.salvar(pObj: TObject): string;
+begin
+
+end;
+
+end.
